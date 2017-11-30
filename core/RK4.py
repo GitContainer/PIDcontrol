@@ -60,3 +60,5 @@ class RK4:
 
 		return (self.__x, self.__y)
 
+	def setCurrentValue(self, y):
+		self.__y = y
