@@ -36,7 +36,6 @@ class RK4:
 
 		for istep in range(0,nstep):
 			self.iterate_one_step()
-			print self.__y
 
 			res[istep+1][0] = self.__x
 			for i in range(0,dim):

@@ -163,7 +163,7 @@ class PID:
 
 			# ax.annotate('features', xy=(ts[nstep-1], rs[nstep-1][idim]), xytext=(ts[nstep-1], rs[nstep-1][idim]), arrowprops=dict(facecolor='black', shrink=0.1))
 		mng = plt.get_current_fig_manager()
-		mng.window.showMaximized()
+		# mng.window.showMaximized()
 		# mng.full_screen_toggle()
 		plt.show()
 
