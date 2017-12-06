@@ -14,9 +14,10 @@
     <ProjectGuid>{B450C333-A1B5-3317-BCEB-7DADAB21AC81}</ProjectGuid>
     <RootNamespace>PID</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <PlatformToolset>v141</PlatformToolset>
     <OutputDirectory>..\bin\release\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
@@ -25,7 +26,7 @@
     <IntermediateDirectory>release\</IntermediateDirectory>
     <PrimaryOutput>PID</PrimaryOutput>
   </PropertyGroup>
-  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <PlatformToolset>v141</PlatformToolset>
     <OutputDirectory>..\bin\debug\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
@@ -36,27 +37,27 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
-  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
-  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">..\bin\release\</OutDir>
-    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\</IntDir>
-    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">PID</TargetName>
-    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</IgnoreImportLibrary>
-    <LinkIncremental Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">false</LinkIncremental>
-    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">..\bin\debug\</OutDir>
-    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\</IntDir>
-    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">PIDd</TargetName>
-    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</IgnoreImportLibrary>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\bin\release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PID</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\bin\debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PIDd</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;.;..\..\..\Qt\5.9.3\msvc2017_64\include;..\..\..\Qt\5.9.3\msvc2017_64\include\QtWidgets;..\..\..\Qt\5.9.3\msvc2017_64\include\QtGui;..\..\..\Qt\5.9.3\msvc2017_64\include\QtANGLE;..\..\..\Qt\5.9.3\msvc2017_64\include\QtCore;release;..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;.;..\..\..\Qt\5.9.3\msvc2017_64\include;..\..\..\Qt\5.9.3\msvc2017_64\include\QtCharts;..\..\..\Qt\5.9.3\msvc2017_64\include\QtWidgets;..\..\..\Qt\5.9.3\msvc2017_64\include\QtGui;..\..\..\Qt\5.9.3\msvc2017_64\include\QtANGLE;..\..\..\Qt\5.9.3\msvc2017_64\include\QtXml;..\..\..\Qt\5.9.3\msvc2017_64\include\QtCore;release;..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>release\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -65,18 +66,19 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>release\</ObjectFileName>
       <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_CHARTS_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
-      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>E:\SDK\Qt\5.9.3\msvc2017_64\lib\qtmain.lib;shell32.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Widgets.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Gui.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>E:\SDK\Qt\5.9.3\msvc2017_64\lib\qtmain.lib;shell32.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Charts.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Widgets.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Gui.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Xml.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>E:\SDK\Qt\5.9.3\msvc2017_64\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -92,12 +94,12 @@
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_CHARTS_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;.;..\..\..\Qt\5.9.3\msvc2017_64\include;..\..\..\Qt\5.9.3\msvc2017_64\include\QtWidgets;..\..\..\Qt\5.9.3\msvc2017_64\include\QtGui;..\..\..\Qt\5.9.3\msvc2017_64\include\QtANGLE;..\..\..\Qt\5.9.3\msvc2017_64\include\QtCore;debug;..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;.;..\..\..\Qt\5.9.3\msvc2017_64\include;..\..\..\Qt\5.9.3\msvc2017_64\include\QtCharts;..\..\..\Qt\5.9.3\msvc2017_64\include\QtWidgets;..\..\..\Qt\5.9.3\msvc2017_64\include\QtGui;..\..\..\Qt\5.9.3\msvc2017_64\include\QtANGLE;..\..\..\Qt\5.9.3\msvc2017_64\include\QtXml;..\..\..\Qt\5.9.3\msvc2017_64\include\QtCore;debug;..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>debug\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -106,7 +108,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>debug\</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;WIN64;_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;WIN64;_DEBUG;QT_CHARTS_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -114,9 +116,9 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>E:\SDK\Qt\5.9.3\msvc2017_64\lib\qtmaind.lib;shell32.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Widgetsd.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Guid.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>E:\SDK\Qt\5.9.3\msvc2017_64\lib\qtmaind.lib;shell32.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Chartsd.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Widgetsd.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Guid.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Xmld.lib;E:\SDK\Qt\5.9.3\msvc2017_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>E:\SDK\Qt\5.9.3\msvc2017_64\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -131,48 +133,101 @@
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;WIN64;_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;WIN64;_DEBUG;QT_CHARTS_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="data.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="pidview.cpp" />
+    <ClCompile Include="plotview.cpp" />
+    <ClCompile Include="sysview.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="data.h" />
     <CustomBuild Include="mainwindow.h">
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">mainwindow.h;release\moc_predefs.h;E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include release/moc_predefs.h -IE:/SDK/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/Qt/5.9.3/msvc2017_64/include -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtWidgets -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtGui -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtANGLE -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCore mainwindow.h -o release\moc_mainwindow.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC mainwindow.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_mainwindow.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">mainwindow.h;debug\moc_predefs.h;E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -D_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IE:/SDK/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/Qt/5.9.3/msvc2017_64/include -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtWidgets -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtGui -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtANGLE -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCore mainwindow.h -o debug\moc_mainwindow.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC mainwindow.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_mainwindow.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mainwindow.h;release\moc_predefs.h;E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include release/moc_predefs.h -IE:/SDK/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/Qt/5.9.3/msvc2017_64/include -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCharts -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtWidgets -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtGui -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtANGLE -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtXml -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCore mainwindow.h -o release\moc_mainwindow.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC mainwindow.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_mainwindow.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mainwindow.h;debug\moc_predefs.h;E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -D_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IE:/SDK/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/Qt/5.9.3/msvc2017_64/include -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCharts -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtWidgets -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtGui -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtANGLE -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtXml -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCore mainwindow.h -o debug\moc_mainwindow.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC mainwindow.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_mainwindow.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="pidview.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pidview.h;release\moc_predefs.h;E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include release/moc_predefs.h -IE:/SDK/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/Qt/5.9.3/msvc2017_64/include -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCharts -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtWidgets -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtGui -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtANGLE -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtXml -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCore pidview.h -o release\moc_pidview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC pidview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_pidview.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pidview.h;debug\moc_predefs.h;E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -D_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IE:/SDK/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/Qt/5.9.3/msvc2017_64/include -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCharts -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtWidgets -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtGui -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtANGLE -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtXml -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCore pidview.h -o debug\moc_pidview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC pidview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_pidview.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="plotview.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">plotview.h;release\moc_predefs.h;E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include release/moc_predefs.h -IE:/SDK/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/Qt/5.9.3/msvc2017_64/include -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCharts -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtWidgets -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtGui -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtANGLE -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtXml -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCore plotview.h -o release\moc_plotview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC plotview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_plotview.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">plotview.h;debug\moc_predefs.h;E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -D_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IE:/SDK/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/Qt/5.9.3/msvc2017_64/include -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCharts -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtWidgets -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtGui -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtANGLE -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtXml -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCore plotview.h -o debug\moc_plotview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC plotview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_plotview.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="sysview.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">sysview.h;release\moc_predefs.h;E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include release/moc_predefs.h -IE:/SDK/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/Qt/5.9.3/msvc2017_64/include -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCharts -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtWidgets -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtGui -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtANGLE -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtXml -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCore sysview.h -o release\moc_sysview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC sysview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_sysview.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">sysview.h;debug\moc_predefs.h;E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\SDK\Qt\5.9.3\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -D_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IE:/SDK/Qt/5.9.3/msvc2017_64/mkspecs/win32-msvc -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/GitHub/PIDcontrol/gui -IE:/SDK/Qt/5.9.3/msvc2017_64/include -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCharts -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtWidgets -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtGui -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtANGLE -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtXml -IE:/SDK/Qt/5.9.3/msvc2017_64/include/QtCore sysview.h -o debug\moc_sysview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC sysview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_sysview.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="debug\moc_mainwindow.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="release\moc_mainwindow.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_pidview.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_pidview.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_plotview.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_plotview.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
       <FileType>Document</FileType>
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">cl -Bxe:\SDK\Qt\5.9.3\msvc2017_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zi -MDd -E ..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp 2>NUL >debug\moc_predefs.h</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">Generate moc_predefs.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -Bxe:\SDK\Qt\5.9.3\msvc2017_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zi -MDd -E ..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_predefs.h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="release\moc_predefs.h.cbt">
       <FileType>Document</FileType>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">cl -Bxe:\SDK\Qt\5.9.3\msvc2017_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MD -E ..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp 2>NUL >release\moc_predefs.h</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">Generate moc_predefs.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_predefs.h;%(Outputs)</Outputs>
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -Bxe:\SDK\Qt\5.9.3\msvc2017_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MD -E ..\..\..\Qt\5.9.3\msvc2017_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </CustomBuild>
+    <ClCompile Include="debug\moc_sysview.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_sysview.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

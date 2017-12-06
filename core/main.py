@@ -45,9 +45,9 @@ def r(t):
 
 ndim = 1
 
-kp = 50
+kp = 500
 ki = 200
-kd = 10
+kd = 100
 
 # kp = np.array([[1,0],[0,1]]) * 50
 # ki = np.array([[1,0],[0,0]]) * 200

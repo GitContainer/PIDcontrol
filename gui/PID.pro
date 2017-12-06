@@ -5,7 +5,7 @@
 TEMPLATE = app
 
 CONFIG += qt debug_and_release
-QT += core widgets gui
+QT += core widgets gui charts xml
 
 CONFIG(debug, debug|release) {
     SUFFIX = d	
@@ -34,8 +34,19 @@ TARGET = PID$${SUFFIX}
 INCLUDEPATH += .
 
 # Input
-SOURCES += main.cpp \
-    mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    pidview.h \
+    plotview.h \
+    sysview.h \
+    data.h
+
+SOURCES += main.cpp \
+    mainwindow.cpp \
+    pidview.cpp \
+    plotview.cpp \
+    sysview.cpp \
+    data.cpp
+
+

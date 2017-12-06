@@ -20,7 +20,6 @@ class PID:
 		self.__sys_MCK = None
 		self.__sys_noise = None
 
-
 	def setPID(self, param, target):
 		self.__PID_param = param
 		self.__PID_target = target
@@ -228,15 +227,29 @@ class PID:
 
 
 	def save(self, filename):
+		
+		ndim = self.__dim
 
 		impl = xml.dom.minidom.getDOMImplementation()
 		dom = impl.createDocument(None, 'PID', None)
 		root = dom.documentElement
 
+		times = dom.createElement('time-series')
+		times.appendChild(dom.createTextNode(','.join(self.__res[:,0].astype(np.str).tolist())))
+		root.appendChild(times)
+
 		for idim in range(0,self.__dim):		
 			dimension = dom.createElement('dimension')
 			dimension.setAttribute('id', '%s'%(idim+1))
 			root.appendChild(dimension)
+
+			series = dom.createElement('series')
+			series.appendChild(dom.createTextNode(','.join(self.__res[:,1+idim].astype(np.str).tolist())))
+			dimension.appendChild(series)
+
+			target = dom.createElement('target')
+			target.appendChild(dom.createTextNode(','.join(self.__rs[:,1+idim].astype(np.str).tolist())))
+			dimension.appendChild(target)
 
 			features = dom.createElement('features')
 			dimension.appendChild(features)
@@ -266,6 +279,6 @@ class PID:
 
 
 		f = open(filename, 'w')
-		dom.writexml(f, addindent='  ', newl='\n')
+		dom.writexml(f, addindent='    ', newl='\n')
 		f.close()
 
