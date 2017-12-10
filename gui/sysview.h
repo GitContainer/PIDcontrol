@@ -8,4 +8,7 @@ class SysView : public QWidget
 
 public:
 	SysView(QWidget *parent = NULL);
+
+private:
+	QTextEdit *mckEdit, *noiseEdit;
 };

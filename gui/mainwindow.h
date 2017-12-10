@@ -20,22 +20,36 @@ public:
 private slots:
     void open();
     void save();
+	void run();
+	void onReadOutput();
+	void onReadError();
+	void onRunFinished(int exitCode, QProcess::ExitStatus exitStatus);
+	void onRunError(QProcess::ProcessError error);
 
 private:
 	void createView();
     void createActions();
     void createMenu();
 
+	void readSettings();
+	void writeSettings();
+
 	void updateView();
 
-    QAction *openAct, *saveAct;
+	bool loadFromFile(QString filename);
+
+    QAction *openAct, *saveAct, *exitAct;
+	QAction *runAct;
 
 	QTabWidget *tab;
 	PlotView *plotview;
 	PIDView *pidview;
 	SysView *sysview;
+	QTextEdit *console;
 
 	Data *data;
+
+	QProcess *proc;
 };
 
 #endif // MAINWINDOW_H
