@@ -11,22 +11,37 @@ class PID:
 		self.__dim = dim
 		self.__solver = RK4()
 
-		self.__timestep = 0.02
+		self.__timestep = 0.2
+		self.__nstep = 1000
 		self.__PID_IntegralItem = np.zeros((self.__dim))
 
 		self.__PID_param = None
 		self.__PID_target = None
 		
 		self.__sys_MCK = None
+		self.__sys_Advection = None
 		self.__sys_noise = None
 
-	def setPID(self, param, target):
+	def setPID(self, target, param):
 		self.__PID_param = param
 		self.__PID_target = target
 
 	def setSystem(self, mck, noise):
 		self.__sys_MCK = mck
 		self.__sys_noise = noise
+
+	def setAdvection(self, adv):
+		self.__sys_Advection = adv
+
+	def setExciteLimitation(self, limit):
+		self.__excite_limit = limit
+
+	def setStopCriteria(self, criteria):
+		self.__stop_criteria = criteria
+
+	def setInitial(self, x0, dx0):
+		self.__X0 = x0
+		self.__dX0 = dx0
 
 	def __dfunc(self, t, X):
 
@@ -36,31 +51,51 @@ class PID:
 		dx = X[ndim:2*ndim]
 
 		(M,C,K) = self.__sys_MCK(t,x,dx)
+		A = self.__sys_Advection(t,x,dx)
 		invM = np.linalg.inv(M)
 
-		kp = self.__PID_param[0]
-		ki = self.__PID_param[1]
-		kd = self.__PID_param[2]
+		(kp, ki, kd) = self.__PID_param(t,x,dx)
 
 		r = self.__PID_target(t)
 		dr = (r - self.__PID_target(t-self.__timestep)) / self.__timestep
 
-		ddx = - np.dot(invM, np.dot(K+kp, x)) - np.dot(invM, np.dot(C+kd, dx))
-		ddx = ddx + np.dot(invM, np.dot(kp,r)) + np.dot(invM, np.dot(kd,dr))
-		ddx = ddx - self.__PID_IntegralItem
+		ddx = - np.dot(invM, np.dot(K, x))					# system: position
+		ddx = ddx - np.dot(invM, np.dot(C, dx))				# system: dumping
+		ddx = ddx - np.dot(invM, np.dot(A,dx*dx[:,None]))	# system: advection
+
+		exc = - np.dot(kp,x-r) - self.__PID_IntegralItem - np.dot(kd,dx-dr)		# excitation
+		exc = self.__excite_limit(t,x,dx,exc)
+		ddx = ddx + np.dot(invM, exc)
 
 		df = np.zeros(2*ndim)
 		df[0:ndim] = dx
 		df[ndim:2*ndim] = ddx
-		
+	
 		return df
 
+	def __excitation(self, t, X):
+
+		ndim = self.__dim
+
+		x = X[0:ndim]
+		dx = X[ndim:2*ndim]
+
+		(M,C,K) = self.__sys_MCK(t,x,dx)
+
+		r = self.__PID_target(t)
+		dr = (r - self.__PID_target(t-self.__timestep)) / self.__timestep
+
+		(kp,ki,kd) = self.__PID_param(t,x,dx)
+
+		exc = - np.dot(kp,x-r) - self.__PID_IntegralItem - np.dot(kd,dx-dr)
+		exc = self.__excite_limit(t,x,dx,exc)
+		return exc
 
 	def solve(self):
 
 		ndim = self.__dim
+		nstep = self.__nstep
 
-		nstep = 1000
 		self.__rs = np.zeros((nstep,ndim+1))
 		for i in range(0,nstep):
 			t = self.__timestep*i
@@ -70,12 +105,16 @@ class PID:
 		t0 = 0
 
 		X0 = np.zeros(2*ndim) 
-		X0[ndim:2*ndim] = 1
+		X0[0:ndim] = self.__X0
+		X0[ndim:2*ndim] = self.__dX0
 
 		self.__res = np.zeros((nstep+1,2*ndim+1))
-
 		self.__res[0][0] = t0
 		self.__res[0][1:2*ndim+1] = X0
+
+		self.__excitations = np.zeros((nstep+1,ndim+1))
+		self.__excitations[0][0] = t0
+		self.__excitations[0][1:ndim+1] = self.__excitation(t0,X0)
 
 		self.__solver.setXstep(self.__timestep)
 		self.__solver.setDiffFunction(self.__dfunc)
@@ -91,12 +130,28 @@ class PID:
 			self.__res[istep+1][0] = t
 			self.__res[istep+1][1:2*ndim+1] = x
 
+			self.__excitations[istep+1][0] = t
+			self.__excitations[istep+1][1:ndim+1] = self.__excitation(t,x)
+
 			r0 = self.__PID_target(t-self.__timestep)
 			r1 = self.__PID_target(t)
 			r = (r0+r1)/2
 
-			self.__PID_IntegralItem = self.__PID_IntegralItem + np.dot(self.__PID_param[1], x[0]-r) * self.__timestep
+			(kp,ki,kd) = self.__PID_param(t,x[0:ndim],x[ndim:2*ndim])
 
+			self.__PID_IntegralItem = self.__PID_IntegralItem + np.dot(kp, x[0:ndim]-r) * self.__timestep
+
+			if self.__stop_criteria(t, x[0:ndim], x[ndim:2*ndim]):
+				self.__res = self.__res[0:istep+1,:]
+				self.__excitations = self.__excitations[0:istep+1,:]
+				break
+
+		return (self.__res, self.__excitations, self.__rs)
+
+	def showValue(self):
+
+		ndim = self.__dim
+		nstep = self.__nstep
 
 		self.__features = {}
 		for idim in range(0,ndim):
@@ -160,12 +215,15 @@ class PID:
 			text = text + 'Setting time = %s\n' % setting_time
 			ax.text(self.__rs[nstep-1][0] * 0.8, 0, text)
 
+			ax2 = ax.twinx()
+			ax2.set_ylabel('excitation(%s)'%(idim+1))
+			ax2.plot(self.__excitations[:,0], self.__excitations[:,1+idim], '-.', color='black', label='excitation')
+
 			# ax.annotate('features', xy=(ts[nstep-1], rs[nstep-1][idim]), xytext=(ts[nstep-1], rs[nstep-1][idim]), arrowprops=dict(facecolor='black', shrink=0.1))
 		mng = plt.get_current_fig_manager()
-		# mng.window.showMaximized()
+		mng.window.showMaximized()
 		# mng.full_screen_toggle()
 		plt.show()
-
 
 	def showEigenValue(self):
 
@@ -224,7 +282,6 @@ class PID:
 		mng = plt.get_current_fig_manager()
 		mng.window.showMaximized()
 		plt.show()
-
 
 	def save(self, filename):
 		
