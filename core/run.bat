@@ -1,1 +1,0 @@
-e:\SDK\Anaconda2\python.exe E:\SDK\GitHub\PIDcontrol\core\main.py input.dat output.dat
